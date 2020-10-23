@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Auth from '../auth.js';
+import Auth from './auth.js';
 import axios from 'axios';
 
 class Login extends Component {
@@ -35,11 +35,11 @@ class Login extends Component {
             password: this.state.password
         }
         console.log(user);
-        axios.get('http://localhost:5000/users/login', user)
+        axios.post('http://localhost:5000/users/login', user)
         .then(res => {
-            console.log(res.data);
-            if(res.data == ""){
-                alert("");
+            console.log(res);
+            if(res.data == null){
+                alert("Incorrect username or password");
             }else{
                 Auth.login(user, () => {
                     this.props.history.push('/private');

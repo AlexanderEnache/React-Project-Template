@@ -30,7 +30,7 @@ router.route('/add').post((req, res) => {
     }
 });
 
-router.route('/login').get((req, res) => {
+router.route('/login').post((req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -39,6 +39,21 @@ router.route('/login').get((req, res) => {
             console.log(err);
             res.json(err);
         }
+        console.log(user);
+        res.json(user);
+    });
+});
+
+router.route('/authentication').post((req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    User.findOne({username: username, password: password}, function (err, user) {
+        if(err){
+            console.log(err);
+            res.json(err);
+        }
+        console.log(user);
         res.json(user);
     });
 });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Auth from '../auth';
+import Auth from './auth';
 
 class Navbar extends Component {
 	constructor(props){
@@ -9,7 +9,7 @@ class Navbar extends Component {
 
 	render(){
 		let vp = Auth.isAuthenticated();
-		console.log(vp + " Check " + Date());
+		console.log(vp);
 		if(vp){
 			return (
 				<nav>

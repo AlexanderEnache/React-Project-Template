@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/navbar.component.js'
-import Auth from './auth.js';
+import Auth from './components/auth.js';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 import Public from './components/publicpage.component.js';
 import Private from './components/privatepage.component.js';
