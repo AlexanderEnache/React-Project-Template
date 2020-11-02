@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class Public extends Component {
 	render(){
 		return (
-			<nav>
+			<div>
 				<h1>Public</h1>
-			</nav>
+			</div>
 		);
 	}
 }

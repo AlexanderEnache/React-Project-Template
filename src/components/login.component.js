@@ -42,6 +42,7 @@ class Login extends Component {
                 alert("Incorrect username or password");
             }else{
                 Auth.login(user, () => {
+                    this.props.rerender();
                     this.props.history.push('/private');
                 });
             }

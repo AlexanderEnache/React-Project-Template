@@ -13,7 +13,7 @@ class Auth extends Component{
 
 	// async componentDidMount(){
 	// 	const username = JSON.parse(localStorage.getItem('username'));
-	// 	const password = JSON.parse(localStorage.getItem('password'));
+	// 	const password = JSON.parse(localStorage.getItem('sessionID'));
 
 	// 	let user = "";
 	// 	let pass = "";
@@ -36,7 +36,7 @@ class Auth extends Component{
 
 	login(user, cb){
 		localStorage.setItem('username', JSON.stringify(user.username));
-		localStorage.setItem('password', JSON.stringify(user.password));
+		localStorage.setItem('sessionID', JSON.stringify(user.password));
 		this.isAuth = true;
 		cb();
 	}
@@ -48,7 +48,7 @@ class Auth extends Component{
 	}
 
 	isAuthenticated(){
-		return this.isAuth;
+		return JSON.parse(localStorage.getItem('username'));
 	}
 }
 // 514 903 9589   ogs1008

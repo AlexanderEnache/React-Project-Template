@@ -12,15 +12,17 @@ app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
-    useNewUrlParser: true, userCreateIndex: true, useUnifiedTopology: true, autoIndex: true 
+    useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, autoIndex: true, useFindAndModify: false
 });
 const connection = mongoose.connection;connection.once('open', () => {
     console.log("Mongo db connected successfully");
 });
 
 const usersRouter = require('./routes/users');
+// const dogsRouter = require('./routes/dogs');
 
 app.use('/users', usersRouter);
+// app.use('/dogs', dogsRouter);
 
 app.listen(port, () => {
     console.log('Server is running on port ' + port);
